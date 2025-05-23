@@ -51,3 +51,57 @@ const cycler1Media = [
     cycler2Index = (cycler2Index + 1) % cycler2Media.length;
     cycler2Img.src = cycler2Media[cycler2Index];
   });
+
+  function showIllustraties() {
+    document.querySelectorAll('.fie-media').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = el.classList.contains('left') ? 'translateX(-30%)' : 'translateX(30%)';
+    });
+  }
+
+  function hideIllustraties() {
+    document.querySelectorAll('.fie-media').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateX(0)';
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const zegel = document.getElementById('zegel');
+    const popup = document.getElementById('popup');
+    const close = document.querySelector('.popup .close');
+  
+    zegel.addEventListener('click', () => {
+      popup.style.display = 'flex';
+    });
+  
+    close.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+  
+    // Sluit popup bij klikken buiten het venster
+    window.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+  });
+
+  // Open en sluit pop-up
+document.getElementById('zegel').addEventListener('click', function () {
+  document.getElementById('contact-popup').style.display = 'flex';
+});
+
+document.getElementById('close-popup').addEventListener('click', function () {
+  document.getElementById('contact-popup').style.display = 'none';
+});
+
+// Simuleer form verzending
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  alert("Bedankt voor je berichtje! Ik neem snel contact met je op 🌸");
+  document.getElementById('contact-popup').style.display = 'none';
+});
+
+  
+
