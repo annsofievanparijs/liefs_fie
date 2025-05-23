@@ -14,9 +14,13 @@
 <body>
 
   <main>
-  
-    <div id="header"></div>
-    <img src="images/Envelop.png" alt="Roze envelop" id="envelope" />
+
+    <div class="envelope-wrapper">
+      <video id="envelope" autoplay muted loop playsinline>
+        <source src="images/Envelop.mp4" type="video/mp4">
+        <img src="images/Envelop.png" alt="Roze envelop" />
+      </video>
+    </div>
 
     <div class="welkom">
       <p>Hi, welkom in mijn creatief fabriekje</p>
@@ -76,14 +80,14 @@
       </div>
     </section>
     
-    <section id="grafisch">
+    <section id="design">
       <div class="grafisch-container">
         <div class="grafisch-media">
           <img src="images/zwemlesbirger.png" alt="Zwemles Birger" />
         </div>
     
         <div class="avatar-with-title fie-avatar">
-          <h2>Grafisch</h2>
+          <h2>Design</h2>
           <img src="images/Grafische Fie.png" alt="Grafische avatar" class="avatar" />
         </div>
     
@@ -94,15 +98,73 @@
     </section>
     
     <section id="contact">
-      <div class="avatar-with-title fie-avatar">
-        <h2>Contact</h2>
-        <img src="images/Contact Fie.png" alt="Contact avatar" id="avatarcontact" class="avatar"/>
+      <div class="contact-container">
+        
+        <div class="contact-media">
+          <img src="images/thanks.png" alt="Thanks afbeelding" />
+        </div>
+    
+        <div class="avatar-with-title fie-avatar">
+          <h2>Contact</h2>
+          <img src="images/Contact Fie.png" alt="Contact avatar" id="avatarcontact" class="avatar"/>
+        </div>
+    
+        <div class="contact-media">
+          <img src="images/Contact-zegel.png" alt="Zegel" id="zegel" style="cursor: pointer;" />
+        </div>
+    
       </div>
     </section>
 
+    <div id="contact-popup" class="popup-overlay">
+      <div class="popup-content">
+        <button id="close-popup" class="popup-close">✕</button>
+        <p class="popup-text">
+          Yay, de postzegel zit al op je briefje! Vul je naam in, laat me weten waarmee ik je mag helpen en druk op ‘verzenden’.<br><br>Tot snel!
+        </p>
 
+        <div class="popup-layout">
+          <img src="images/PostzegelContact.png" alt="Postkaart contact" class="popup-image">
+      
+          <form id="contact-form" class="popup-form">
+            <input type="text" name="name" placeholder="Jouw naam" required />
+            <textarea name="message" placeholder="Je berichtje..." required></textarea>
+            <button type="submit" class="popup-send-button">Verzenden</button>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <a href="https://www.instagram.com/liefs_fie_/profilecard/?igsh=MWhqZWg3NmxjcGUxZw==" target="_blank" class="footer-item">
+          <img src="images/Instagram.png" alt="Instagram" class="footer-icon" />
+          <span>@liefs_fie</span>
+        </a>
+        <div class="footer-item">
+          <img src="images/Telefoonnummer.png" alt="Telefoon" class="footer-icon" />
+          <span>0489 57 37 44</span>
+        </div>
+      </div>
+    </footer>
     
+    
+    
+
   </main>
 <script src="javascript.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
