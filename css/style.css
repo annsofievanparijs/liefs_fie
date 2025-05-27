@@ -17,44 +17,25 @@ body {
 * {
   box-sizing: inherit;
 }
-  
-#header {
-    padding: 2rem 1rem;
-    max-width: 100%;
-  }
 
-  .envelope-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-  
-  #envelope {
-    width: 100%;
-    max-width: 700px;
-    object-fit: contain;
-    transform: translateX(13px); /* schuift 20px naar rechts */
 
-  }
+#envelope {
+  width: 100%;       
+  margin-top: 30px;  
+}
 
-  
-  .welcome p {
-    font-size: 1rem;
-  }
-  
   /*navigatie*/
 
   .menu {
-    margin-top: 5rem;
+    width: 100%;           /* menu neemt 90% van envelop breedte */
+    margin: 0 auto;       /* centreren */
     display: flex;
     flex-direction: row;
     gap: 4rem;
     align-items: center;
     justify-content: center;
-    align-items: center;
     flex-wrap: nowrap;
+    transition: width 0.3s ease;
   }
   
   .menu-item {
@@ -66,7 +47,6 @@ body {
     width: 50px;
     height: auto;
     display: block;
-    margin: 0 auto 0.5rem;
   }
 
   .menu-item {
@@ -89,15 +69,45 @@ body {
   }
   
   .menu-item:hover span {
-    color: #F17DB7; 
+    color: #F17DB7;
+    font-size: 1.5rem; 
   }
+
+
+  .menu-item span {
+    font-size: 1rem;
+  }
+  
+
+  .section:hover {
+    color: #F17DB7;
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+  }
+
+  #contact:hover {
+    color: #F17DB7;
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+  }
+
 
 /*Fie: illustraties*/
 
   .section {
     padding: 4rem 1rem;
     text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding: 4rem 1rem;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }  
   
   .section h2 {
     font-family: 'Jetbrains Mono', monospace;
@@ -106,64 +116,75 @@ body {
     justify-content: center;
   }
 
+  .avatar {
+    width: clamp(100px, 5vw, 150px); /* groeit mee, blijft groter dan foto's */
+    height: auto;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 7rem;            /* Avatar vult de container */
+    max-height: 80vh;
+  }
   
-  /* Illustraties rondom avatar */
- 
+  .avatar-with-title {
+    display: flex;
+    flex-direction: column; /* Titel boven de afbeelding */
+    align-items: center;    /* Centraal uitlijnen */
+    justify-content: center;
+  }
+  
+  .avatar-with-title h2 {
+    margin: 0 0 0.5rem 0;   /* Ruimte onder de titel */
+    font-size: 2rem;        /* Maak titel goed zichtbaar */
+    text-align: center;
+  }
+
+  .onder-avatar-tekst {
+    font-size: 1rem;
+    color: #F17DB7;
+    margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* tekst reageert niet op clicks */
+  }
+  
+  #content:hover .onder-avatar-tekst,
+  #design:hover .onder-avatar-tekst {
+    opacity: 1;
+  }
+  
+  
+  
+  @media (min-width: 768px) {
+    .avatar {
+      height: 40rem;             /* even hoog als de container */
+      width: auto;              /* automatisch breder worden */
+      max-height: none;         /* verwijder beperking */
+    }
+
+    .avatar-with-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
+
   .fie-container {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100vw;
+    height: 80% ;
     flex-wrap: nowrap;
-  }
-  
-  .fie-media {
-    flex: 1;
-    max-width: 30vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    overflow: hidden;
-  }
-  
-  .fie-media img {
-    width: 70%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-  }
-  
-  .fie-avatar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .fie-avatar img.avatar,
-  .content-avatar img.avatar,
-  .design-avatar img.avatar,
-  .contact-avatar img.avatar {
-    width: clamp(100px, 5vw, 150px);
-    height: auto;
-    object-fit: contain;
+    margin-bottom: 4rem ;
   }
 
-  .fie-media {
-    flex: 1;
-    max-width: 30vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    overflow: hidden;
-  
-    /* Verborgen en naar binnen geschoven */
-    opacity: 0;
-    transform: translateX(0); 
-    transition: all 0.5s ease;
-  }
-  
   .fie-container:hover .fie-media:first-child {
     transform: translateX(-30%);
     opacity: 1;
@@ -173,244 +194,51 @@ body {
     transform: translateX(30%);
     opacity: 1;
   }
-
-
-  /* Gedeelde animatie voor alle media */
-.content-media,
-.grafisch-media {
-  flex: 1;
-  max-width: 30vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateX(0);
-  transition: all 0.5s ease;
-}
-
-.content-container,
-.grafisch-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  flex-wrap: nowrap;
-}
-
-/* Hover-effect voor Content */
-.content-container:hover .content-media:first-child {
-  transform: translateX(-30%);
-  opacity: 1;
-}
-
-.content-container:hover .content-media:last-child {
-  transform: translateX(30%);
-  opacity: 1;
-}
-
-/* Hover-effect voor Grafisch */
-.grafisch-container:hover .grafisch-media:first-child {
-  transform: translateX(-30%);
-  opacity: 1;
-}
-
-.grafisch-container:hover .grafisch-media:last-child {
-  transform: translateX(30%);
-  opacity: 1;
-}
   
+  .fie-media {
+    flex: 1;
+    max-width: 30vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(0);
+    transition: all 0.5s ease;
+  }
   
-/*Content*/
+  .fie-media img ,
+  .fie-media video {
+    width: 80%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  
 
-.flex-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  flex-wrap: nowrap;
-  margin-bottom: 4rem;
-}
+  .media-cycler {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    margin: auto;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .media-cycler img,
+  .media-cycler video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
-/* Cyclers */
-#cycler1,
-#cycler2 {
-  flex: 1;
-  max-width: 30vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  overflow: hidden;
-}
-
-/* Avatar in het midden */
-.avatarcontent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Avatar zelf */
-.avatarcontent img {
-  width: clamp(100px, 5vw, 150px); /* groeit mee, blijft groter dan foto's */
-  height: auto;
-  object-fit: contain;
-}
-
-/* Cycler media */
-.cycler img,
-.cycler video {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-.cycler img,
-.cycler video {
-  width: 70%;
-  height: 70%;
-  object-fit: contain;
-  display: block;
-}
-
-/* Verberg cyclers en schuif ze naar het midden toe */
-.flex-container .cycler {
-  opacity: 0;
-  transform: translateX(0);
-  transition: all 0.5s ease;
-}
-
-/* Bij hover over de hele container: uitschuiven */
-.flex-container:hover .cycler:first-child {
-  transform: translateX(-30%);
-  opacity: 1;
-}
-
-.flex-container:hover .cycler:last-child {
-  transform: translateX(30%);
-  opacity: 1;
-}
-
-/*Grafisch*/
-
-
-.avatar {
-  width: clamp(100px, 5vw, 150px); /* groeit mee, blijft groter dan foto's */
-  height: auto;
-  object-fit: contain;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-}
-
-.grafisch-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  flex-wrap: nowrap;
-  margin-bottom: 4rem;
-}
-
-.grafisch-media {
-  flex: 1;
-  max-width: 30vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  overflow: hidden;
-}
-
-.grafisch-media img {
-  width: 70%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-.grafisch-avatar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.grafisch-avatar img {
-  width: clamp(100px, 5vw, 150px);
-  height: auto;
-  object-fit: contain;
-}
-
-.avatar-with-title {
-  display: flex;
-  flex-direction: column; /* Titel boven de afbeelding */
-  align-items: center;    /* Centraal uitlijnen */
-  justify-content: center;
-}
-
-.avatar-with-title h2 {
-  margin: 0 0 0.5rem 0;   /* Ruimte onder de titel */
-  font-size: 2rem;        /* Maak titel goed zichtbaar */
-  text-align: center;
-}
-
-.avatar-with-title img.avatar {
-  width: 55%;            /* Avatar vult de container */
-  height: auto;
-  max-height: 80vh;       /* Max hoogte zodat avatar niet te groot wordt */
-  object-fit: contain;    /* Houdt aspect ratio */
-  max-width: 50vw;
-  width: clamp(100px, 5vw, 150px); /* groeit mee, blijft groter dan foto's */
-  height: auto;
-  object-fit: contain;
-}
 
 #contact {
   padding-bottom: 5rem;
 }
 
-.contact-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  flex-wrap: nowrap;
-  margin-bottom: 4rem;
-}
-
-.contact-media {
-  flex: 1;
-  max-width: 30vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateX(0);
-  transition: all 0.5s ease;
-}
-
-.contact-media img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-/* Hover effect */
-.contact-container:hover .contact-media:first-child {
-  transform: translateX(-30%);
-  opacity: 1;
-}
-
-.contact-container:hover .contact-media:last-child {
-  transform: translateX(30%);
-  opacity: 1;
-}
 
 .popup {
   display: none; /* Verborgen standaard */
@@ -546,6 +374,10 @@ body {
   text-align: center;
 }
 
+.footer span {
+  font-size: 2rem;
+}
+
 .footer-content {
   display: flex;
   justify-content: center;
@@ -576,5 +408,14 @@ body {
 .footer a.footer-item:hover span {
   text-decoration: underline;
 }
+
+@media (min-width: 600px) {
+  #envelope {
+    width: 70%;       /* kleiner op mobiel */
+    margin-top: 30px;  /* ook minder ruimte boven op klein scherm */
+  }
+}
+
+
 
 
