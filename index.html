@@ -22,11 +22,6 @@
       </video>
     </div>
 
-    <div class="welkom">
-      <p>Hi, welkom in mijn creatief fabriekje</p>
-      <p> met een <em>denkbeeldige roze strik</em> </p>
-    </div>
-
     <nav class="menu">
       <a href="#fie" class="menu-item">
         <img src="images/MenuFie.png" alt="Fie"/>
@@ -34,15 +29,15 @@
       </a>
       <a href="#content" class="menu-item">
         <img src="images/MenuContent.png" alt="Content"/>
-        <span>Content</span>
+        <span>content</span>
       </a>
       <a href="#design" class="menu-item">
         <img src="images/MenuDesign.png" alt="Design"/>
-        <span>Design</span>
+        <span>design</span>
       </a>
       <a href="#contact" class="menu-item">
         <img src="images/MenuContact.png" alt="Contact"/>
-        <span>Contact</span>
+        <span>contact</span>
       </a>
     </nav>
 
@@ -52,7 +47,7 @@
           <img src="images/illustraties1.png" alt="illustraties1" />
         </div>
     
-        <div class="avatar-with-title fie-avatar">
+        <div class="avatar-with-title">
           <h2>Fie</h2>
           <img src="images/Just Fie.png" alt="Fie avatar" class="avatar" />
         </div>
@@ -63,60 +58,60 @@
       </div>
     </section>
 
-    <section id="content">
-      <div class="flex-container"> 
-        <div class="cycler" id="cycler1" tabindex="0" aria-label="Eerste mediacycler">
-          <video id="video1" src="images/charliesantwerp (2).mp4" autoplay muted loop playsinline></video>
-        </div>
-    
-        <div class="avatar-with-title fie-avatar" aria-hidden="true">
-          <h2>Content</h2>
+    <section id="content" class="section">
+      <div class="fie-container">
+
+        <div class="fie-media" id="cycler1"></div>
+
+        <div class="avatar-with-title">
+          <h2>content</h2>
+          <p class="onder-avatar-tekst">Meer zien? Klik en ontdek!</p>
           <img src="images/Digitale Fie.png" alt="content Fie" class="avatar">
         </div>
+        
+        <div class="fie-media" id="cycler2"></div>
+
+      </div>
+
+    </section>
     
-        <div class="cycler" id="cycler2" tabindex="0" aria-label="Tweede mediacycler">
-          <img id="img2" src="images/6.png" alt="Cycler afbeelding">
+    <section id="design" class="section">
+      <div class="fie-container">
+
+        <div class="fie-media" id="cycler3"></div>
+
+        <div class="avatar-with-title">
+          <h2>design</h2>
+          <p class="onder-avatar-tekst">Meer zien? Klik en ontdek!</p>
+          <img src="images/Grafische Fie.png" alt="Grafische avatar" class="avatar">
         </div>
+
+        <div class="fie-media" id="cycler4"></div>
+
       </div>
     </section>
     
-    <section id="design">
-      <div class="grafisch-container">
-        <div class="grafisch-media">
-          <img src="images/zwemlesbirger.png" alt="Zwemles Birger" />
-        </div>
-    
-        <div class="avatar-with-title fie-avatar">
-          <h2>Design</h2>
-          <img src="images/Grafische Fie.png" alt="Grafische avatar" class="avatar" />
-        </div>
-    
-        <div class="grafisch-media">
-          <img src="images/mipa.png" alt="Mipa" />
-        </div>
-      </div>
-    </section>
     
     <section id="contact">
-      <div class="contact-container">
-        
-        <div class="contact-media">
+      <div class="fie-container">         
+      
+        <div class="fie-media"> 
           <img src="images/thanks.png" alt="Thanks afbeelding" />
         </div>
     
-        <div class="avatar-with-title fie-avatar">
-          <h2>Contact</h2>
-          <img src="images/Contact Fie.png" alt="Contact avatar" id="avatarcontact" class="avatar"/>
+        <div class="avatar-with-title">
+          <h2>contact</h2>
+          <img src="images/Contact Fie.png" alt="Contact avatar" class="avatar"/>
         </div>
     
-        <div class="contact-media">
+        <div class="fie-media">
           <img src="images/Contact-zegel.png" alt="Zegel" id="zegel" style="cursor: pointer;" />
         </div>
     
       </div>
     </section>
 
-    <div id="contact-popup" class="popup-overlay">
+    <div id="contact-popup" class="popup-overlay" class="section">
       <div class="popup-content">
         <button id="close-popup" class="popup-close">✕</button>
         <p class="popup-text">
@@ -154,6 +149,7 @@
 
   </main>
 <script src="javascript.js"></script>
+
 </body>
 </html>
 
